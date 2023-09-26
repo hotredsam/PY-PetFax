@@ -7,13 +7,24 @@
     <title>Document</title>
 </head>
 
-<body>
-    <h1>Welcome to PetFax</h1>
-    {% for pet in pets %}
-        <h2>{{ pet.pet_name }}</h2>
-        <img src="{{ pet.pet_photo }}" alt="Photo of pet"/>
-    {% endfor %}
+<body style="background: #F5F3EB; font-family: 'ABeeZee', helvetica;">
+    <div class="container"
+        style="width: 50%; margin: 2em auto; padding: 1em 3em 3em 3em; border-radius: 1em; background: white; box-shadow: 2px 2px #ddd;">
+        <h1 style="margin: 0; color: #7FA4AD; font-family: 'Bowlby One', impact; font-size: 4em; text-align: center;">
+            Welcome to PetFax</h1>
+        {% for pet in pets %}
+        <h2 style="color: #DE9D49; margin: 0.5em 0;">{{ pet.pet_name }}</h2>
+        <img src="{{ pet.pet_photo }}" alt="Photo of {{ pet.pet_name }}"
+            style="width: 100%; border-radius: 1em; display: block; margin-bottom: 0.5em;" />
+        <br>
+        <a href="{{ request.path }}{{ pet.pet_name }}"
+            style="font-family: 'Abel', verdana; text-decoration: none; color: #7FA4AD;">View more details</a>
+        {% endfor %}
+    </div>
+    <div>
+        <p>If you would like to submit some more animal facts please do so <a href="/facts/new"
+                style="font-family: 'Abel', verdana; text-decoration: none; color: #7FA4AD;">here</a></p>
+    </div>
 </body>
-
 
 </html>
